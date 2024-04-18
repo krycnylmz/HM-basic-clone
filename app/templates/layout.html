@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}H&M{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+          container:{
+            center: true, // Container'ı merkezde hizala
+            padding: '1rem', // Her iki yandan 1rem padding
+            screens: {
+              'sm': '640px',
+              'md': '768px',
+              'lg': '1008px', // lg ve daha büyük ekranlar için 1008px genişlik
+              'xl': '1008px',
+              '2xl': '1008px',
+            },
+          }
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <header class="w-full ">
+        <div class='w-full p-8 flex flex-row justify-between items-center'>
+            <ul class='flex flex-row gap-4 text-xs'>
+                <li class=''> <a href='' class=''>Müşteri Hizmetleri</a> </li>
+                <li class=''> <a href='' class=''>Moda Haberleri</a> </li>
+                <li class=''> <a href='' class=''>Mağaza Bul</a> </li>
+                <li class=''> <a href='' class='hover:text-red-700'> ... </a> </li>
+            </ul>
+            <a href='' class=' h-10 '>
+                <img class='h-10 ' src='{{ url_for('static', filename='images/logo.svg') }}' alt='H&M Logo' />
+            </a>
+            <ul class='flex flex-row  gap-4 text-xs'>
+                <li class=''>Müşteri Hizmetleri</li>
+                <li class=''>Moda Haberleri</li>
+                <li class=''>Mağaza Bul</li>
+                <li class=''>...</li>
+            </ul>
+        </div>
+        <div class="container bg-red-300 mx-auto">
+            deneme koray
+        </div>
+    </header>
+    <nav>
+      <!-- Navigasyon menüsü -->
+    </nav>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer>
+      <!-- Footer içeriği -->
+    </footer>
+  </body>
+</html>
