@@ -14,44 +14,182 @@
           extend: {
             colors: {
               clifford: "#da373d",
+              default: "#FAF9F8", // Default color
             },
           },
-          container:{
+          container: {
             center: true, // Container'ı merkezde hizala
-            padding: '1rem', // Her iki yandan 1rem padding
+            padding: "1rem", // Her iki yandan 1rem padding
             screens: {
-              'sm': '640px',
-              'md': '768px',
-              'lg': '1008px', // lg ve daha büyük ekranlar için 1008px genişlik
-              'xl': '1008px',
-              '2xl': '1008px',
+              sm: "640px",
+              md: "768px",
+              lg: "1008px", // lg ve daha büyük ekranlar için 1008px genişlik
+              xl: "1008px",
+              "2xl": "1008px",
             },
-          }
+          },
         },
       };
     </script>
   </head>
-  <body>
-    <header class="w-full ">
-        <div class='w-full p-8 flex flex-row justify-between items-center'>
-            <ul class='flex flex-row gap-4 text-xs'>
-                <li class=''> <a href='' class=''>Müşteri Hizmetleri</a> </li>
-                <li class=''> <a href='' class=''>Moda Haberleri</a> </li>
-                <li class=''> <a href='' class=''>Mağaza Bul</a> </li>
-                <li class=''> <a href='' class='hover:text-red-700'> ... </a> </li>
-            </ul>
-            <a href='' class=' h-10 '>
-                <img class='h-10 ' src='{{ url_for('static', filename='images/logo.svg') }}' alt='H&M Logo' />
+  <body class="bg-default">
+    <header class="w-full">
+      <div class="w-full p-8 flex flex-row justify-between items-center">
+        <ul class="flex flex-row gap-4 text-xs">
+          <li class=""><a href="" class="">Müşteri Hizmetleri</a></li>
+          <li class=""><a href="" class="">Moda Haberleri</a></li>
+          <li class=""><a href="" class="">Mağaza Bul</a></li>
+          <li class=""><a href="" class="hover:text-red-700"> ooo </a></li>
+        </ul>
+        <a href="" class="h-10">
+          <img class='h-10 ' src='{{ url_for('static',
+          filename='images/logo.svg') }}' alt='H&M Logo' />
+        </a>
+        <ul class="flex flex-row gap-4 text-xs">
+          <li class="relative group">
+            <a href='' class='flex flex-row gap-2 items-center'>
+                <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="black"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                      />
+                    </svg>
+                  </span>
+                  Oturum Aç
             </a>
-            <ul class='flex flex-row  gap-4 text-xs'>
-                <li class=''>Müşteri Hizmetleri</li>
-                <li class=''>Moda Haberleri</li>
-                <li class=''>Mağaza Bul</li>
-                <li class=''>...</li>
-            </ul>
-        </div>
-        <div class="container bg-red-300 mx-auto">
-            deneme koray
+            <div class=' w-72 bg-default group-hover:absolute group-hover:flex hover:flex hidden -left-48 p-4  flex-col'>
+                <a href='' class='w-full  bg-black text-white text-center p-4 font-bold hover:bg-gray-700'>Oturum Aç</a>
+                <ul class=' my-4 flex flex-col gap-3 '> 
+                    <li class=''> <a href='' class=' hover:underline underline-offset-2 decoration-[1.2px] '>Hesabım</a> </li>
+                    <li class=''> <a href='' class=' hover:underline underline-offset-2 decoration-[1.2px] '>H&M Member</a> </li>
+                    <li class=''> <a href='' class='text-[10px] text-slate-600 font-medium hover:text-black'>H&M Member değil misin? Hemen aramıza katıl!</a> </li>
+                </ul>
+            </div>
+          </li>
+          <li class="">
+            <a href='' class='flex flex-row gap-2 items-center'>
+                <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                      />
+                    </svg>
+                  </span>
+                  Favoriler
+            </a>
+          </li>
+          <li class="">
+            <a href='' class='flex flex-row gap-2 items-center'>
+                <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                      />
+                    </svg>
+                  </span>
+                  Alışveriş Sepeti (0)
+            </a>
+          </li>
+        </ul>
+      </div>
+        <div class='relative'>
+            <div class="container mx-auto">
+                <ul class="flex flex-row justify-center gap-8 font-light">
+                <li class="">
+                    <a
+                    href=""
+                    class="hover:underline cursor-pointer underline-offset-4 decoration-[1.2px]"
+                    >Kadın</a
+                    >
+                </li>
+                <li class="">
+                    <a
+                    href=""
+                    class="hover:underline cursor-pointer underline-offset-4 decoration-[1.2px]"
+                    >Erkek</a
+                    >
+                </li>
+                <li class="">
+                    <a
+                    href=""
+                    class="hover:underline cursor-pointer underline-offset-4 decoration-[1.2px]"
+                    >Bebek</a
+                    >
+                </li>
+                <li class="">
+                    <a
+                    href=""
+                    class="hover:underline cursor-pointer underline-offset-4 decoration-[1.2px]"
+                    >Çocuk</a
+                    >
+                </li>
+                <li class="">
+                    <a
+                    href=""
+                    class="hover:underline cursor-pointer underline-offset-4 decoration-[1.2px]"
+                    >H&M Home</a
+                    >
+                </li>
+                <li class="">
+                    <a
+                    href=""
+                    class="hover:underline cursor-pointer underline-offset-4 decoration-[1.2px]"
+                    >Spor</a
+                    >
+                </li>
+                <li class="">
+                    <a
+                    href=""
+                    class="hover:underline cursor-pointer underline-offset-4 decoration-[1.2px]"
+                    >İndirim</a
+                    >
+                </li>
+                <li class="">
+                    <a
+                    href=""
+                    class="hover:underline cursor-pointer underline-offset-4 decoration-[1.2px]"
+                    >Sürdürülebilirlik</a
+                    >
+                </li>
+                </ul>
+
+            </div>
+            <div class=' w-64 absolute right-8 bottom-0 flex flex-row text-center content-center border-b border-b-black'>
+                <label for="search_input" class="items-center content-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                </label>
+                <input type="text" id="search_input" name="search_input" class="w-full py-2 items-center content-center relative pl-2 bg-default text-sm text-black" placeholder="Ürün ara" value="">
+                </input>
+            </div>
         </div>
     </header>
     <nav>

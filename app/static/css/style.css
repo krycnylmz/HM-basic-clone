@@ -1,0 +1,8 @@
+.custom-input {
+  /* Remove default browser appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: aqua;
+  /* Add your custom styles here */
+}
