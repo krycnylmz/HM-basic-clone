@@ -3,6 +3,23 @@
 {% block title %}Ana Sayfa{% endblock %}
 
 {% block content %}
+    
     <h1>Ana Sayfaya Hoşgeldiniz!</h1>
     <p>Bu bizim harika web sitemizin ana sayfası.</p>
+
+
+    <h1>Ürünlerimiz</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <h2>{{ product.name }}</h2>
+                <p>Fiyat: {{ product.price }} TL</p>
+                <p>Stok: {{ product.stock }}</p>
+                {% if product.cover_image %}
+                    <img src="{{ url_for('static', filename=product.cover_image) }}" alt="{{ product.name }}" style="width: 100px; height: auto;">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
+
