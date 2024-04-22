@@ -33,8 +33,8 @@
     </script>
   </head>
   <body class="bg-default">
-    <header class="w-full">
-      <div class="w-full p-8 flex flex-row justify-between items-center">
+    <header class="w-full px-8 pb-4">
+      <div class="w-full py-12  flex flex-row justify-between items-center">
         <ul class="flex flex-row gap-4 text-xs">
           <li class=""><a href="" class="">Müşteri Hizmetleri</a></li>
           <li class=""><a href="" class="">Moda Haberleri</a></li>
@@ -119,7 +119,7 @@
           </li>
         </ul>
       </div>
-        <div class='relative'>
+        <nav class='relative'>
             <div class="container mx-auto">
                 <ul class="flex flex-row justify-center gap-8 font-light">
                 <li class="">
@@ -179,27 +179,39 @@
                     >
                 </li>
                 </ul>
-
             </div>
-            <div class=' w-64 absolute right-8 bottom-0 flex flex-row text-center content-center border-b border-b-black'>
+            <div class=' w-64 absolute right-0 bottom-0 flex flex-row text-center content-center border-b border-b-black'>
                 <label for="search_input" class="items-center content-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                         </svg>
                 </label>
-                <input type="text" id="search_input" name="search_input" class="w-full py-2 items-center content-center relative pl-2 bg-default text-sm text-black" placeholder="Ürün ara" value="">
-                </input>
+                <input type="text" id="search_input" name="search_input" class="w-full py-2 items-center content-center relative pl-2 bg-default text-xs text-black placeholder:text-black outline outline-0 focus:outline-0" placeholder="Ürün ara" value="">
             </div>
         </div>
     </header>
-    <nav>
-      <!-- Navigasyon menüsü -->
-    </nav>
+
 
     <main>{% block content %} {% endblock %}</main>
 
-    <footer>
+    <footer class="bg-gray-200 h-auto py-14">
       <!-- Footer içeriği -->
+      <div class='container'>
+        <div class='grid grid-cols-4'>
+          <div class='cols-span-1'> 
+            <h5 class='font-semibold text-md'>ONLINE ALIŞVERİŞ</h5>
+          </div>
+          <div class='cols-span-1'>
+            <h5 class='font-semibold text-md'>KURUMSAL BİLGİLER</h5>
+          </div>
+          <div class='cols-span-1'>
+            <h5 class='font-semibold text-md'>YARDIM</h5>
+          </div>
+          <div class='cols-span-1'>
+            <h5 class='font-semibold text-md'>H&M Member ol ve %10 indirim kazan</h5>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

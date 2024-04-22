@@ -4,11 +4,40 @@
 
 {% block content %}
     
+    <div class='container'>
+        <ul class='text-xs flex flex-row justify-center space-x-28 py-6'>
+            <li class=''><a href='' class=''>Teslimat süresi: 4-6 iş günü</a></li>
+            <li class=''><a href='' class=''>750 TL ve üzeri alışverişlerde ücretsiz kargo</a></li>
+            <li class=''><a href='' class=''>Uygulamamızı indir</a></li>
+        </ul>
+    </div>
+    <div class='container'>
+        <div class='relative h-[600px]'>
+            <a href='' class='absolute w-full '>
+                <div class='relative w-full h-full'>
+                    <div class='flex flex-row'>
+                        <div class='flex flex-row w-full h-[600px] sm:h-[600px] object-cover overflow-hidden'>
+                            <img src='{{ url_for('static', filename='images/home_banner_left.jpeg') }}' alt='img' class="w-1/2 object-cover hidden sm:inline blur-[0.8px] scale-105" />
+                            <img src='{{ url_for('static', filename='images/home_banner.jpeg') }}' alt='img' class="w-full sm:w-1/2 object-cover blur-[0.8px] scale-105" />
+                        </div>
+                    </div>
+
+                    <div class='bottom-0 absolute w-full flex flex-col gap-4'>
+                        <h3 class="text-lg text-center ">YENİ ÜRÜNLER</h3>
+                        <h3 class="text-4xl text-center font-bold">İlkbahara özel keten stiller ve baskılar</h3>
+                        <div class=' w-full flex flex-row justify-center my-8'>
+                            <div class=' bg-slate-950 hover:bg-slate-700 text-sm px-4 py-2 text-white font-medium'>Şimdi satın al</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+    </div>
+    
     <h1>Ana Sayfaya Hoşgeldiniz!</h1>
     <p>Bu bizim harika web sitemizin ana sayfası.</p>
-
-
-    <h1>Ürünlerimiz</h1>
+    <h3>Yeni Ürünler</h3>
     <ul>
         {% for product in products %}
             <li>
@@ -21,5 +50,7 @@
             </li>
         {% endfor %}
     </ul>
+
+
 {% endblock %}
 
