@@ -34,22 +34,34 @@
         </div>
         
     </div>
+    <div class='container'>
+        <h3 class='text-xl font-medium my-3'>Yeni Ürünler</h3>
+        <ul class='flex flex-row gap-4 overflow-scrool my-3'>
+            <li class='cursor-pointer px-4 py-2 rounded-full border border-black active_tab '>Kadın</li>
+            <li class='cursor-pointer px-4 py-2 rounded-full border border-black'>Erkek</li>
+            <li class='cursor-pointer px-4 py-2 rounded-full border border-black '>Kadın</li>
+            <li class='cursor-pointer px-4 py-2 rounded-full border border-black '>Kadın</li>
+        </ul>
+
+
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+        slides-per-view="4" navigation="true">
+            {% for product in products %}
+                <swiper-slide class="mb-8">
+                    <a href="" class='w-72 h-full'>
+                        {% if product.cover_image %}
+                        <img src="{{ url_for('static', filename='images/product_images/' + product.cover_image) }}" alt="{{ product.name }}" class="w-full">
+                        {% endif %}
+                        <div class='flex flex-col gap-0 my-2 items-start content-start '>
+                            <h4 class="text-xs">{{ product.name }}</h4>
+                            <span class="text-xs"> {{ product.price }} TL</span>
+                        </div>
+                    </a>
+                </swiper-slide>
+            {% endfor %}
+        </swiper-container>
+    </div>
     
-    <h1>Ana Sayfaya Hoşgeldiniz!</h1>
-    <p>Bu bizim harika web sitemizin ana sayfası.</p>
-    <h3>Yeni Ürünler</h3>
-    <ul>
-        {% for product in products %}
-            <li>
-                <h2>{{ product.name }}</h2>
-                <p>Fiyat: {{ product.price }} TL</p>
-                <p>Stok: {{ product.stock }}</p>
-                {% if product.cover_image %}
-                    <img src="{{ url_for('static', filename=product.cover_image) }}" alt="{{ product.name }}" style="width: 100px; height: auto;">
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
 
 
 {% endblock %}
