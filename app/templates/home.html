@@ -37,31 +37,39 @@
     <div class='container'>
         <h3 class='text-xl font-medium my-3'>Yeni Ürünler</h3>
         <ul class='flex flex-row gap-4 overflow-scrool my-3'>
-            <li class='cursor-pointer px-4 py-2 rounded-full border border-black active_tab '>Kadın</li>
-            <li class='cursor-pointer px-4 py-2 rounded-full border border-black'>Erkek</li>
-            <li class='cursor-pointer px-4 py-2 rounded-full border border-black '>Kadın</li>
-            <li class='cursor-pointer px-4 py-2 rounded-full border border-black '>Kadın</li>
+            {% for category in categories%}
+            <li>
+                <a href="?category={{ category.slug }}" class="cursor-pointer px-5 py-3 rounded-full border border-black {% if category.slug == selected_category %} active_tab {% endif %}">
+                    {{ category.name }}
+                </a>
+            </li>            
+            {% endfor %}
         </ul>
 
-
-        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+        {% if products %}
+        <swiper-container class="mySwiper pt-4" pagination="true" pagination-clickable="true" space-between="30"
         slides-per-view="4" navigation="true">
-            {% for product in products %}
-                <swiper-slide class="mb-8">
-                    <a href="" class='w-72 h-full'>
-                        {% if product.cover_image %}
-                        <img src="{{ url_for('static', filename='images/product_images/' + product.cover_image) }}" alt="{{ product.name }}" class="w-full">
-                        {% endif %}
-                        <div class='flex flex-col gap-0 my-2 items-start content-start '>
-                            <h4 class="text-xs">{{ product.name }}</h4>
-                            <span class="text-xs"> {{ product.price }} TL</span>
-                        </div>
-                    </a>
-                </swiper-slide>
-            {% endfor %}
+        
+        {% for product in products %}
+            <swiper-slide class="mb-8">
+                <a href="" class='w-72 h-full'>
+                    {% if product.cover_image %}
+                        <!--<img src="{{ url_for('static', filename='images/product_images/' + product.cover_image) }}" alt="{{ product.name }}" class="w-full"> -->
+                        <img src='{{product.cover_image}}' alt='{{product.name}}' class="w-full" />
+                    {% endif %}
+                    <div class='flex flex-col gap-0 my-2 items-start content-start '>
+                        <h4 class="text-xs">{{ product.name }}</h4>
+                        <span class="text-xs">{{ product.price }} TL</span>
+                    </div>
+                </a>
+            </swiper-slide>
+        {% endfor %}
         </swiper-container>
+
+        {% else %}
+            <h1 class='w-full bg-red-700 py-8 text-center items-center content-center text-white rounded-md my-4 '> There  are no new products in this section.</h1>
+        {% endif %}
     </div>
-    
 
 
 {% endblock %}

@@ -31,5 +31,17 @@ class Product(db.Model):
             'updated_at': product.updated_at.isoformat()
         } for product in products]
 
+    @classmethod
+    def get_new_products_by_category(cls, category_id):
+        products = cls.query.filter_by(category_id=category_id, is_new=True).all()
+        return [{
+            'id': product.id,
+            'category_id': product.category_id,
+            'name': product.name,
+            'price': str(product.price),
+            'is_new': product.is_new,
+            'cover_image': product.cover_image
+        } for product in products]
+        
     def __repr__(self):
         return f'<Product {self.name}>'
