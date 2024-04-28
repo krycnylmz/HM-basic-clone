@@ -11,11 +11,7 @@ class Category(db.Model):
     @classmethod
     def get_all_categories(cls):
         categories = cls.query.all()
-        return [{
-            'id': category.id,
-            'name': category.name,
-            'slug':category.slug
-        } for category in categories]
+        return categories
 
     def __repr__(self):
         return f'<Category {self.name}>'

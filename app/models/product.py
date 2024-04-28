@@ -43,5 +43,21 @@ class Product(db.Model):
             'cover_image': product.cover_image
         } for product in products]
         
+    @classmethod
+    def get_products_by_query(cls, query):
+        # Construct the query to filter products based on the provided query
+        products = Product.query.filter(Product.name.ilike(f"%{query}%")).all()
+        
+        # Return the list of products as dictionaries
+        return [{
+            'id': product.id,
+            'category_id': product.category_id,
+            'name': product.name,
+            'price': str(product.price),
+            'is_new': product.is_new,
+            'cover_image': product.cover_image
+        } for product in products]
+
+        
     def __repr__(self):
         return f'<Product {self.name}>'

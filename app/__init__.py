@@ -29,6 +29,12 @@ def create_app():
     from .blueprints.home.routes import home_bp
     app.register_blueprint(home_bp)
     
+    from .blueprints.searchResults.routes import searchResults_bp
+    app.register_blueprint(searchResults_bp)
+
+    from .blueprints.productPage.routes import productPage_bp
+    app.register_blueprint(productPage_bp)
+    
     from .blueprints.products.routes import products_bp
     app.register_blueprint(products_bp)
     
