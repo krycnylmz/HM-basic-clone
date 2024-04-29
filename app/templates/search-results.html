@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}{{query_input}}{% endblock %}
+{% block title %}{{query_input}} | H&M TR{% endblock %}
 
 {% block content %}
 <div class='container'>
@@ -19,20 +19,53 @@
     <div class='col-span-12 sm:col-span-10 px-4'>
         <!--Filters-->
         <div class='flex flex-row justify-between'>
-            <ul class=' gap-4 mb-2 mb-8 flex flex-row'>
-                <li class='uppercase cursor-pointer font-medium text-sm flex flex-row gap-2 '>Sırala
-                    <span class=''  > 
+            <ul id="filter_list" class=' gap-4 mb-2 mb-8 flex flex-row'>
+                <li class='uppercase cursor-pointer font-medium text-sm flex flex-row gap-2 relative'>
+                    Sırala
+                    <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>                      
                     </span>
+                    <div class=" list-of-filter flex flex-col bg-gray-50 shadow-md rounded top-6 absolute z-20 {{ '' if selected_sort  else 'hiden' }}">
+                        <div class="" id="stock">
+                            <label class="inline-flex items-center py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal ">
+                                <input type="radio" class="form-radio w-4 h-4" name="radio-options" value="stock" {{ 'checked' if selected_sort == 'stock' else '' }}>
+                                <span class="ml-2 text-nowrap noselect ">Önerilen</span>
+                            </label>
+                        </div>
+                        <div class="" id="newProduct">
+                            <label class="inline-flex items-center py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal ">
+                                <input type="radio" class="form-radio w-4 h-4" name="radio-options" value="newProduct" {{ 'checked' if selected_sort == 'newProduct' else '' }}>
+                                <span class="ml-2 text-nowrap noselect ">En yeni</span>
+                            </label>
+                        </div>
+                        <div class="" id="ascPrice">
+                            <label class="inline-flex items-center  py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal ">
+                                <input type="radio" class="form-radio w-4 h-4" name="radio-options" value="ascPrice" {{ 'checked' if selected_sort == 'ascPrice' else '' }}>
+                                <span class="ml-2 text-nowrap noselect ">En düşük fiyat</span>
+                            </label>
+                        </div>
+                        <div class="" id="descPrice">
+                            <label class="inline-flex items-center w-full py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal ">
+                                <input type="radio" class="form-radio w-4 h-4" name="radio-options" value="descPrice" {{ 'checked' if selected_sort == 'descPrice' else '' }}>
+                                <span class="ml-2 text-nowrap noselect ">En Yüksek Fiyat</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    
                 </li>
-                <li class='uppercase cursor-pointer font-medium text-sm flex flex-row gap-2 '>Beden
+                
+                <li class='uppercase cursor-pointer font-medium text-sm flex flex-row gap-2  relative'>Beden
                     <span class=''  > 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>                      
                     </span>
+                    <div class=" list-of-filter flex flex-col bg-gray-50 shadow-md rounded top-6 absolute z-20 hidden">
+                        deneme
+                    </div>
                 </li>
                 <li class='uppercase cursor-pointer font-medium text-sm flex flex-row gap-2 '>Renk
                     <span class=''  > 
