@@ -9,7 +9,7 @@
 
 <div class='w-full grid grid-cols-12 my-4'>
     <div class='col-span-2 px-4 flex'>
-        <ul class='hidden sm:flex flex-col gap-4 pl-6 pr-8 w-full'> 
+        <ul class='hidden sm:flex flex-col gap-4 pl-6 pr-8 w-full '> 
             <li class='text-xs flex flex-row justify-between cursor-pointer'> Hepsi  <span class="text-xs text-gray-500">  {{ total_products }} </span> </li>
             {% for category in categories %}
             <li class='text-xs flex flex-row justify-between cursor-pointer'> {{category.name}} <span class="text-xs text-gray-500"> {{ category.products_count }} </span></li>
@@ -18,7 +18,7 @@
     </div>
     <div class='col-span-12 sm:col-span-10 px-4'>
         <!--Filters-->
-        <div class='flex flex-row justify-between'>
+        <div class='flex flex-row justify-between overflow-x-scroll'>
             <ul id="filter_list" class=' gap-4 mb-2 mb-8 flex flex-row'>
                 <li class='uppercase cursor-pointer font-medium text-sm flex flex-row gap-2 relative'>
                     Sırala
@@ -27,21 +27,21 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>                      
                     </span>
-                    <div class=" list-of-filter flex flex-col bg-gray-50 shadow-md rounded top-6 absolute z-20 {{ '' if selected_sort  else 'hiden' }}">
+                    <div class=" list-of-filter flex flex-col bg-gray-50 shadow-md rounded top-6 absolute z-20 {{ '' if selected_sort  else '' }}">
                         <div class="" id="stock">
-                            <label class="inline-flex items-center py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal ">
+                            <label class="inline-flex items-center py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal text-nowrap">
                                 <input type="radio" class="form-radio w-4 h-4" name="radio-options" value="stock" {{ 'checked' if selected_sort == 'stock' else '' }}>
                                 <span class="ml-2 text-nowrap noselect ">Önerilen</span>
                             </label>
                         </div>
                         <div class="" id="newProduct">
-                            <label class="inline-flex items-center py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal ">
+                            <label class="inline-flex items-center py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal text-nowrap">
                                 <input type="radio" class="form-radio w-4 h-4" name="radio-options" value="newProduct" {{ 'checked' if selected_sort == 'newProduct' else '' }}>
                                 <span class="ml-2 text-nowrap noselect ">En yeni</span>
                             </label>
                         </div>
                         <div class="" id="ascPrice">
-                            <label class="inline-flex items-center  py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal ">
+                            <label class="inline-flex items-center  py-4 px-6 cursor-pointer hover:bg-gray-200 block w-72 normal-case font-normal text-nowrap">
                                 <input type="radio" class="form-radio w-4 h-4" name="radio-options" value="ascPrice" {{ 'checked' if selected_sort == 'ascPrice' else '' }}>
                                 <span class="ml-2 text-nowrap noselect ">En düşük fiyat</span>
                             </label>

@@ -36,7 +36,7 @@
     </div>
     <div class='container'>
         <h3 class='text-xl font-medium my-3'>Yeni Ürünler</h3>
-        <ul class='flex flex-row gap-4 overflow-scrool my-3'>
+        <ul class='flex flex-row gap-4 my-3 py-4 overflow-x-scroll'>
             {% for category in categories%}
             <li>
                 <a href="?category={{ category.slug }}" class="cursor-pointer px-5 py-3 rounded-full border border-black {% if category.slug == selected_category %} active_tab {% endif %}">

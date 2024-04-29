@@ -17,9 +17,15 @@ class Product(db.Model):
 
     @classmethod
     def get_products_by_query(cls, query):
-        # Construct the query to filter products based on the provided query
-        # Now returning a query object instead of executing it
         return Product.query.filter(Product.name.ilike(f"%{query}%"))
+    
+    @classmethod
+    def get_products_by_id(cls, id):
+        return cls.query.filter_by(id=id).first()
+    
+    @classmethod
+    def get_new_products_by_category(cls, category_id):
+        return cls.query.filter_by(category_id=category_id, is_new=True).all()
 
     # Other methods remain unchanged
         
