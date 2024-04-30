@@ -52,7 +52,7 @@
         
         {% for product in products %}
             <swiper-slide class="mb-8">
-                <a href="" class='w-72 h-full'>
+                <a href="{{ url_for('productPage.product_page', product_id=product.id) }}" class='w-72 h-full'>
                     {% if product.cover_image %}
                         <!--<img src="{{ url_for('static', filename='images/product_images/' + product.cover_image) }}" alt="{{ product.name }}" class="w-full"> -->
                         <img src='{{product.cover_image}}' alt='{{product.name}}' class="w-full" />
