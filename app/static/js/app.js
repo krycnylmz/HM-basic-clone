@@ -1,22 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Get the form element
   const searchForm = document.getElementById("search_form");
+  const mobileSearchForm = document.getElementById("mobile_search_form");
 
-  // Add an event listener for form submission
-  searchForm.addEventListener("submit", function (event) {
-    // Prevent the default form submission behavior
+  // Function to handle search submission
+  function handleSearchSubmission(event) {
     event.preventDefault();
-
-    // Get the value of the search input
-    const searchInput = document.getElementById("search_input").value;
-    if (searchInput != null && searchInput != "") {
-      // Redirect to the search results page with the search query as a parameter
-      window.location.href = `/search-results.html?q=${encodeURIComponent(
-        searchInput
-      )}`;
+    const searchInput = event.currentTarget.querySelector("#search_input").value;
+    if (searchInput) {
+      window.location.href = `/search-results.html?q=${encodeURIComponent(searchInput)}`;
     }
-  });
+  }
+
+  // Add event listeners for form submissions
+  if (searchForm) {
+    searchForm.addEventListener("submit", handleSearchSubmission);
+  }
+  if (mobileSearchForm) {
+    mobileSearchForm.addEventListener("submit", handleSearchSubmission);
+  }
 });
+
 
 // Search result page filter navigation
 // Wait for the DOM to be loaded
@@ -72,4 +75,25 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
   
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const searchIcon = document.getElementById('search_icon');
+  const closeMobileSearchButton = document.getElementById('close_mobile_search_button');
+  const mobileSearchForm = document.getElementById('mobile_search_form');
+  const nav = document.getElementById('nav');
+
+  // Log the button element to the console for debugging
+  console.log(closeMobileSearchButton);
+
+  // Toggle the visibility of the mobile search form
+  function toggleSearchForm() {
+    mobileSearchForm.classList.toggle('hidden');
+    nav.classList.toggle('hidden');
+  }
+
+  // Add click event listeners to buttons
+  closeMobileSearchButton.addEventListener("click", toggleSearchForm);
+  searchIcon.addEventListener("click", toggleSearchForm);
 });
